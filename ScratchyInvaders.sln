@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScratchyInvaders", "ScratchyInvaders\ScratchyInvaders.csproj", "{6C9B40A9-822E-45AF-9128-DE299D94B75E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScratchyInvadersContent", "ScratchyInvadersContent\ScratchyInvadersContent.contentproj", "{5445846E-AA81-4DE2-A3BE-85538854562E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C9B40A9-822E-45AF-9128-DE299D94B75E}.Debug|x86.ActiveCfg = Debug|x86
+		{6C9B40A9-822E-45AF-9128-DE299D94B75E}.Debug|x86.Build.0 = Debug|x86
+		{6C9B40A9-822E-45AF-9128-DE299D94B75E}.Release|x86.ActiveCfg = Release|x86
+		{6C9B40A9-822E-45AF-9128-DE299D94B75E}.Release|x86.Build.0 = Release|x86
+		{5445846E-AA81-4DE2-A3BE-85538854562E}.Debug|x86.ActiveCfg = Debug|x86
+		{5445846E-AA81-4DE2-A3BE-85538854562E}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
