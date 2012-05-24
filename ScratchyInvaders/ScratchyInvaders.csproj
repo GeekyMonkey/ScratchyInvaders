@@ -101,10 +101,9 @@
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>
-    <Content Include="ToDo.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SpaceInvadersContent\GameContent.contentproj">
+    <ProjectReference Include="..\ScratchyInvadersContent\ScratchyInvadersContent.contentproj">
       <Name>GameContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>
       <Project>{5445846E-AA81-4DE2-A3BE-85538854562E}</Project>
