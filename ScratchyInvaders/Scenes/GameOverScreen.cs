@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input;
 #endregion
 
 
-namespace ScratchyXna.Screens
+namespace ScratchyXna
 {
     class GameOverScreen : Scene
     {
