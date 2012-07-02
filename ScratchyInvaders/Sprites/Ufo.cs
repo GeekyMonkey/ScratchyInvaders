@@ -71,7 +71,7 @@ namespace ScratchyXna
         {
             if (State == UfoStates.Flying)
             {
-                RotateTowards(((PlayScreen)GameScreen).ship, 90);
+                RotateTowards(((PlayScreen)GameScreen).ship, -90);
                 if (X > 100 + Width /*GameScreen.MaxX + Width*/)
                 {
                     GoHome();
