@@ -25,12 +25,12 @@ namespace ScratchyXna
         /// Load the screens needed for the game
         /// The first one added is where the game will start
         /// </summary>
-        public override void LoadGameScreens()
+        public override void LoadScenes()
         {
-            AddScreen<TitleScreen>();
-            AddScreen<PlayScreen>();
-            AddScreen<GameOverScreen>();
-            AddScreen<TestScreen>();
+            AddScene<TitleScreen>();
+            AddScene<PlayScreen>();
+            AddScene<GameOverScreen>();
+            AddScene<TestScreen>();
         }
 
     }

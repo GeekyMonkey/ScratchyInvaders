@@ -37,7 +37,7 @@ namespace ScratchyXna
         /// Start the title screen
         /// This happens at the beginning of the game, and when you're done playing
         /// </summary>
-        public override void StartScreen()
+        public override void StartScene()
         {
             Texts.Clear();
             Sprites.Clear();
@@ -146,7 +146,7 @@ namespace ScratchyXna
             {
                 //todo: tap to play
                 //todo: xbox a or start button to play
-                ShowScreen("Play");
+                ShowScene("Play");
             }
 
             // Give us something interesting to look at

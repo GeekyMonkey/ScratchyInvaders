@@ -35,7 +35,7 @@ namespace ScratchyXna
             Show();
             GhostEffect = 0;
             Scale = UfoScale;
-            X = -100; // GameScreen.MinX - Width;
+            X = -100; // Scene.MinX - Width;
             State = UfoStates.Flying;
             Direction = 0;
             Speed = 0.5f;
@@ -46,7 +46,7 @@ namespace ScratchyXna
         {
             Hide();
             State = UfoStates.Waiting;
-            X = GameScreen.MinX - Width;
+            X = Scene.MinX - Width;
             Y = 90;
             Speed = 0;
             StopSound("ufo");
@@ -71,8 +71,8 @@ namespace ScratchyXna
         {
             if (State == UfoStates.Flying)
             {
-                RotateTowards(((PlayScreen)GameScreen).ship, -90);
-                if (X > 100 + Width /*GameScreen.MaxX + Width*/)
+                RotateTowards(((PlayScreen)Scene).ship, -90);
+                if (X > 100 + Width /*GameScene.MaxX + Width*/)
                 {
                     GoHome();
                 }

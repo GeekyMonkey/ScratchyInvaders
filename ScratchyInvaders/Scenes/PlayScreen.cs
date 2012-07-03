@@ -164,7 +164,7 @@ namespace ScratchyXna
         /// <summary>
         /// Start the play screen
         /// </summary>
-        public override void StartScreen()
+        public override void StartScene()
         {
             Lives = 3;
             lifesprites.Clear();
@@ -322,7 +322,7 @@ namespace ScratchyXna
             ship.Explode();
             if (Lives == 0)
             {
-                Wait(1, () => ShowScreen("GameOver"));
+                Wait(1, () => ShowScene("GameOver"));
             }
             else
             {
@@ -335,7 +335,7 @@ namespace ScratchyXna
         /// <summary>
         /// Stop the play screen
         /// </summary>
-        public override void StopScreen()
+        public override void StopScene()
         {
             ufo.GoHome();
         }

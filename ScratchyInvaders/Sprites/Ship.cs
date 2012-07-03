@@ -54,12 +54,12 @@ namespace ScratchyXna
             if (CostumeName != "ShipDeath")
             {
                 // Left and Right
-                if (GameScreen.Keyboard.KeyDown(Keys.Left) && (IsTouchingLeft() == false))
+                if (Scene.Keyboard.KeyDown(Keys.Left) && (IsTouchingLeft() == false))
                 {
                     Direction = 180;
                     Speed = 1.0f;
                 }
-                else if (GameScreen.Keyboard.KeyDown(Keys.Right) && (IsTouchingRight() == false))
+                else if (Scene.Keyboard.KeyDown(Keys.Right) && (IsTouchingRight() == false))
                 {
                     Direction = 0;
                     Speed = 1.0f;

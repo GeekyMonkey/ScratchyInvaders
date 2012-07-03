@@ -40,7 +40,7 @@ namespace ScratchyXna
                 Hide();
                 Speed = 0;
                 State = MissileStates.Loaded;
-                //GameScreen.ShowScreen("gameover");
+                //Scene.ShowScene("gameover");
             }
         }
 

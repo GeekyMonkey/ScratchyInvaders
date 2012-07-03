@@ -81,7 +81,7 @@ namespace ScratchyXna
         /// <summary>
         /// Start the game over screen
         /// </summary>
-        public override void StartScreen()
+        public override void StartScene()
         {
             // Display the final score
             ScoreText.Value = "Score: Kickass"; // +SpaceInvaders.score;
@@ -108,7 +108,7 @@ namespace ScratchyXna
             {
                 //todo: also do this for phone tap
                 //todo: also do this for xbox a button
-                ShowScreen("play");
+                ShowScene("play");
             }
 
             if (missile != null)
