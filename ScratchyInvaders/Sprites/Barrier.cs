@@ -12,7 +12,7 @@ namespace ScratchyXna
     {
         public override void Load()
         {
-            SetCostume("Barrier");
+            Costume = AddCostume("Barrier").Copy();
             Costume.YCenter = VerticalAlignments.Center;
             Y = -50;
             Scale = 1f / 2f;

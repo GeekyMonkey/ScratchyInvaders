@@ -1,21 +1,35 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScratchyInvaders", "ScratchyInvaders\ScratchyInvaders.csproj", "{6C9B40A9-822E-45AF-9128-DE299D94B75E}"
+# Visual Studio 2010 Express for Windows Phone
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScratchyInvaders", "ScratchyInvaders\ScratchyInvaders.csproj", "{A783F793-3B4B-4793-B377-E8FFA90D59F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScratchyInvadersContent", "ScratchyInvadersContent\ScratchyInvadersContent.contentproj", "{5445846E-AA81-4DE2-A3BE-85538854562E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6C9B40A9-822E-45AF-9128-DE299D94B75E}.Debug|x86.ActiveCfg = Debug|x86
-		{6C9B40A9-822E-45AF-9128-DE299D94B75E}.Debug|x86.Build.0 = Debug|x86
-		{6C9B40A9-822E-45AF-9128-DE299D94B75E}.Release|x86.ActiveCfg = Release|x86
-		{6C9B40A9-822E-45AF-9128-DE299D94B75E}.Release|x86.Build.0 = Release|x86
+		{A783F793-3B4B-4793-B377-E8FFA90D59F6}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{A783F793-3B4B-4793-B377-E8FFA90D59F6}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{A783F793-3B4B-4793-B377-E8FFA90D59F6}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{A783F793-3B4B-4793-B377-E8FFA90D59F6}.Debug|x86.ActiveCfg = Debug|x86
+		{A783F793-3B4B-4793-B377-E8FFA90D59F6}.Debug|x86.Build.0 = Debug|x86
+		{A783F793-3B4B-4793-B377-E8FFA90D59F6}.Release|Any CPU.ActiveCfg = Release|x86
+		{A783F793-3B4B-4793-B377-E8FFA90D59F6}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{A783F793-3B4B-4793-B377-E8FFA90D59F6}.Release|Mixed Platforms.Build.0 = Release|x86
+		{A783F793-3B4B-4793-B377-E8FFA90D59F6}.Release|x86.ActiveCfg = Release|x86
+		{A783F793-3B4B-4793-B377-E8FFA90D59F6}.Release|x86.Build.0 = Release|x86
+		{5445846E-AA81-4DE2-A3BE-85538854562E}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{5445846E-AA81-4DE2-A3BE-85538854562E}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{5445846E-AA81-4DE2-A3BE-85538854562E}.Debug|x86.ActiveCfg = Debug|x86
+		{5445846E-AA81-4DE2-A3BE-85538854562E}.Release|Any CPU.ActiveCfg = Release|x86
+		{5445846E-AA81-4DE2-A3BE-85538854562E}.Release|Mixed Platforms.ActiveCfg = Release|x86
 		{5445846E-AA81-4DE2-A3BE-85538854562E}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution

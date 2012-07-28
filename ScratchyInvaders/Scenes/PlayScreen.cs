@@ -376,8 +376,28 @@ namespace ScratchyXna
                     }
                 }
 
-                if (missile.IsTouching(barrier1) || missile.IsTouching(barrier2) || missile.IsTouching(barrier3) || missile.IsTouching(barrier4))
+                Sprite HitBarrier = null;
+                if (missile.IsTouching(barrier1))
                 {
+                    HitBarrier = barrier1;
+                }
+                if (missile.IsTouching(barrier2))
+                {
+                    HitBarrier = barrier2;
+                }
+                if (missile.IsTouching(barrier3))
+                {
+                    HitBarrier = barrier3;
+                }
+                if (missile.IsTouching(barrier4))
+                {
+                    HitBarrier = barrier4;
+                }
+                if(HitBarrier != null)
+                {
+                    missile.SetCostume("MissileHitBarrier");
+                    missile.Scale = 0.5f;
+                    HitBarrier.Stamp(missile,StampMethods.Cutout);
                     missile.Load();
                 }
 

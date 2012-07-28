@@ -21,16 +21,18 @@ namespace ScratchyXna
         /// </summary>
         public override void Load()
         {
+            Costume HitCostume = AddCostume("MissileHitBarrier");
+            HitCostume.YCenter = VerticalAlignments.Center;
             SetCostume("Missile");
             Costume.YCenter = VerticalAlignments.Center;
-            Scale = 1;
+            Scale = 1f;
             State = MissileStates.Loaded;
             Hide();
         }
 
 
         /// <summary>
-        /// Updaate the missile
+        /// Update the missile
         /// </summary>
         public override void Update(GameTime gameTime)
         {
