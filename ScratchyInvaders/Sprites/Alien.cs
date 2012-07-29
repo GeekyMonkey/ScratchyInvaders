@@ -15,6 +15,8 @@ namespace ScratchyXna
         public AlienStates State;
         public int AlienType;
         public int ScoreValue;
+        public int Row;
+        public int Col;
 
         public override void Load()
         {

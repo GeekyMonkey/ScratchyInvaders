@@ -142,6 +142,8 @@ namespace ScratchyXna
                     AlienSprite newAlien = AddSprite<AlienSprite>();
                     newAlien.X = -100 + col * 14;
                     newAlien.Y = 80 - row * 10;
+                    newAlien.Col = col;
+                    newAlien.Row = row;
                     if (row == 1)
                     {
                         newAlien.Setup(3);
@@ -356,12 +358,13 @@ namespace ScratchyXna
                 {
                     missile.Fire(ship.Position, ship.Rotation);
                 }
-                // Clicking the ship fires a missile (just for testing the click function)
-                if (Mouse.Button1Pressed())
-                {
-                    missile.Fire(ship.Position, ship.Rotation);
-                }
             }
+            // S key to fire a missile 
+            if (Keyboard.KeyPressed(Keys.S))
+            {
+                AlienShoot();
+            }
+
             // Missile collisions
             if (missile.State == MissileStates.Flying)
             {
@@ -497,6 +500,48 @@ namespace ScratchyXna
         {
             DrawLine(new Vector2(-100, -90), new Vector2(100, -90), 1f, Color.Lime);
         }
-
+        void AlienShoot()
+        {
+            List<AlienSprite> ShootingAliens = new List<AlienSprite>();
+            for (int col = 1; col <= 11; col++)
+            {
+                AlienSprite Alien;
+                Alien = FindBottomAlienInCol(col);
+                if (Alien != null)
+                {
+                    ShootingAliens.Add(Alien);
+                }
+            }
+            if (ShootingAliens.Count > 0)
+            {
+                int ShooterIndex = Random.Next(0, ShootingAliens.Count() - 1);
+                AlienSprite ShootingAlien = ShootingAliens[ShooterIndex];
+                /*
+                foreach (AlienSprite alien in aliens)
+                {
+                    alien.GhostEffect = 0;
+                }
+                foreach (AlienSprite alien in ShootingAliens)
+                {
+                    alien.GhostEffect = 50;
+                }
+                ShootingAlien.GhostEffect = 70;
+                */
+                AlienShoot(ShootingAlien);
+            }
+        }
+        void AlienShoot(AlienSprite ShootingAlien)
+        {
+            AlienMissileSprite AlienMissile;
+            AlienMissile = new AlienMissileSprite();
+            AddSprite(AlienMissile);
+            AlienMissile.Fire(ShootingAlien.Position, ShootingAlien.Rotation);
+        }
+        AlienSprite FindBottomAlienInCol(int col)
+        {
+            AlienSprite Found = null;
+            Found = aliens.Where(a => a.Col == col && a.State == AlienStates.Alive).OrderByDescending(a => a.Row).FirstOrDefault();
+            return Found;
+        }
     }
 }
