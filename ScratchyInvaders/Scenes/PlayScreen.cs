@@ -18,6 +18,7 @@ namespace ScratchyXna
         // Sprites on the screen
         public ShipSprite ship;
         MissileSprite missile;
+        List<AlienMissileSprite> alienMissiles = new List<AlienMissileSprite>();
         UfoSprite ufo;
         BarrierSprite barrier1;
         BarrierSprite barrier2;
@@ -188,6 +189,7 @@ namespace ScratchyXna
             MoveWaitSeconds = 1;
             alienDirection = AlienDirections.Right;
             Wait(MoveWaitSeconds, Move);
+            ScheduleAlienShoot();
         }
 
         /// <summary>
@@ -359,11 +361,14 @@ namespace ScratchyXna
                     missile.Fire(ship.Position, ship.Rotation);
                 }
             }
+
             // S key to fire a missile 
+            /*
             if (Keyboard.KeyPressed(Keys.S))
             {
                 AlienShoot();
             }
+            */
 
             // Missile collisions
             if (missile.State == MissileStates.Flying)
@@ -444,7 +449,8 @@ namespace ScratchyXna
         private void ShowDebugText()
         {
             DebugText.Value = "pxs=" + PixelScale.ToString("0.0000") + Text.NewLine +
-              "minX=" + MinX.ToString("0.00");
+              "minX=" + MinX.ToString("0.00") + Text.NewLine +
+              "missiles=" + alienMissiles.Count();
         }
 
 
@@ -496,10 +502,12 @@ namespace ScratchyXna
                 LevelText.Value = "Level " + level;
             }
         }
+
         public override void Draw()
         {
             DrawLine(new Vector2(-100, -90), new Vector2(100, -90), 1f, Color.Lime);
         }
+
         void AlienShoot()
         {
             List<AlienSprite> ShootingAliens = new List<AlienSprite>();
@@ -528,20 +536,43 @@ namespace ScratchyXna
                 ShootingAlien.GhostEffect = 70;
                 */
                 AlienShoot(ShootingAlien);
+                ScheduleAlienShoot();
             }
         }
+
         void AlienShoot(AlienSprite ShootingAlien)
         {
             AlienMissileSprite AlienMissile;
             AlienMissile = new AlienMissileSprite();
+            alienMissiles.Add(AlienMissile);
             AddSprite(AlienMissile);
             AlienMissile.Fire(ShootingAlien.Position, ShootingAlien.Rotation);
         }
+
         AlienSprite FindBottomAlienInCol(int col)
         {
             AlienSprite Found = null;
             Found = aliens.Where(a => a.Col == col && a.State == AlienStates.Alive).OrderByDescending(a => a.Row).FirstOrDefault();
             return Found;
+        }
+
+        /// <summary>
+        /// Calculate number of seconds until next alien shoot
+        /// </summary>
+        /// <returns>Seconds</returns>
+        double CalculateAlienShootDelay()
+        {
+            double shootDelay = 1.0 / Level;
+            double randomPercent = Random.NextDouble();
+            return (shootDelay / 2) + (shootDelay * 1.8 * randomPercent);
+        }
+
+        /// <summary>
+        /// Schedule the next alien shot
+        /// </summary>
+        void ScheduleAlienShoot()
+        {
+            Wait(CalculateAlienShootDelay(), AlienShoot);
         }
     }
 }

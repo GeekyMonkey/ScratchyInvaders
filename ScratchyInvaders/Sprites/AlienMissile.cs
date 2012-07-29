@@ -42,7 +42,7 @@ namespace ScratchyXna
             {
                 Hide();
                 Speed = 0;
-                State = MissileStates.Loaded;
+                State = MissileStates.Destroy;
                 //Scene.ShowScene("gameover");
             }
         }
