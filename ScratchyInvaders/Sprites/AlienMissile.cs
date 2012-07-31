@@ -24,6 +24,7 @@ namespace ScratchyXna
             Costume HitCostume = AddCostume("MissileHitBarrier");
             HitCostume.YCenter = VerticalAlignments.Center;
             AddCostume("AlienBullets/BoltRight");
+            AddCostume("AlienBullets/AlienMissileHitBarrrier");
             SetCostume("AlienBullets/BoltLeft");
             Costume.YCenter = VerticalAlignments.Center;
             Scale = 0.5f;
