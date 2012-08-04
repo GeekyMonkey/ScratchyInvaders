@@ -171,6 +171,7 @@ namespace ScratchyXna
         {
             Lives = 3;
             lifesprites.Clear();
+            Sprites.RemoveAll(s => s is LivesSprite);
             Costume lifecostume = new Costume();
             lifecostume.Load(this, Content, "Ship");
             lifecostume.YCenter = VerticalAlignments.Bottom;
@@ -199,6 +200,10 @@ namespace ScratchyXna
         {
             Level += 1;
             CreateAliens();
+            barrier1.Load();
+            barrier2.Load();
+            barrier3.Load();
+            barrier4.Load();
             MoveWaitSeconds = 1.1f - ((float)Level / 10.0f);
         }
 
@@ -330,8 +335,20 @@ namespace ScratchyXna
             }
             else
             {
-                Wait(1, () => lifesprites[Lives - 1].GlideTo(new Vector2(0, ship.ShipY-10), 1));
-                Wait(2, () => lifesprites[Lives - 1].Hide());
+                Wait(1, () =>
+                {
+                    if (Lives != 0)
+                    {
+                        lifesprites[Lives - 1].GlideTo(new Vector2(0, ship.ShipY - 10), 1);
+                    }
+                });
+                Wait(2, () =>
+                {
+                    if (Lives != 0)
+                    {
+                        lifesprites[Lives - 1].Hide();
+                    }
+                });
             }
         }
 
@@ -594,6 +611,11 @@ namespace ScratchyXna
                 if (AlienMissile.IsTouching(barrier4))
                 {
                     AlienMissile.HitBarrier(barrier4);
+                }
+                if (AlienMissile.IsTouching(ship))
+                {
+                    ShipDie();
+                    AlienMissile.State = MissileStates.Destroy;
                 }
             }    
         }
