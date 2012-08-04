@@ -15,9 +15,6 @@ namespace ScratchyXna
     /// </summary>
     public class TitleScreen : Scene
     {
-        // Title screen variables
-        int HighScore = 0;
-
         // Title screen text objects
         Text HighScoreText;
         Text StartText;
@@ -154,9 +151,7 @@ namespace ScratchyXna
             // (wait until it has been added to the screen)
             if (HighScoreText != null)
             {
-                HighScore += 1;
-                HighScore = (int)(HighScore * 1.005);
-                HighScoreText.Value = "High Score: " + HighScore;
+                HighScoreText.Value = "High Score: " + SpaceInvaders.HighScore;
             }
         }
 

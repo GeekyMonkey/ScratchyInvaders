@@ -16,6 +16,7 @@ namespace ScratchyXna
         Text GameOverText;
         Text ScoreText;
         Text RestartText;
+        Text HighScoreText;
 
         /// <summary>
         /// Load the game over screen
@@ -36,6 +37,19 @@ namespace ScratchyXna
                 AnimationIntensity = 0.5
             };
             AddText(GameOverText);
+
+            // Add the high score text
+            HighScoreText = AddText(new Text
+            {
+                Value = "High Score:",
+                Position = new Vector2(80f, 90f),
+                Alignment = HorizontalAlignments.Center,
+                VerticalAlign = VerticalAlignments.Top,
+                AnimationType = TextAnimations.SeeSaw,
+                AnimationSeconds = 0.2,
+                AnimationIntensity = 0.15,
+                Scale = 0.4f,
+            });
 
             // Add the score text
             ScoreText = AddText(new Text
@@ -75,8 +89,12 @@ namespace ScratchyXna
         /// </summary>
         public override void StartScene()
         {
+            PlayerData.SetValue("HighScore", SpaceInvaders.HighScore);
+            PlayerData.Save();
+
             // Display the final score
             ScoreText.Value = "Score: " + SpaceInvaders.score;
+            HighScoreText.Value = "High Score: " + SpaceInvaders.HighScore;
             
             // Wait 2 seconds
             Wait(2, () =>

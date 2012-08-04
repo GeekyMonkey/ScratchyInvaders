@@ -20,6 +20,7 @@ namespace ScratchyXna
     {
         // Game variables
         public static int score;
+        public static int HighScore;
 
         /// <summary>
         /// Load the screens needed for the game
@@ -27,6 +28,8 @@ namespace ScratchyXna
         /// </summary>
         public override void LoadScenes()
         {
+            PlayerData.Load();
+            HighScore = PlayerData.GetInt("HighScore", 0);
             AddScene<TitleScreen>();
             AddScene<PlayScreen>();
             AddScene<GameOverScreen>();

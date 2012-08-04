@@ -44,6 +44,7 @@ namespace ScratchyXna
         Text ScoreText;
         Text LevelText;
         Text LivesText;
+        Text HighScoreText;
 
         /// <summary>
         /// Load the screen
@@ -84,6 +85,15 @@ namespace ScratchyXna
                 VerticalAlign = VerticalAlignments.Top,
                 Scale = .4f,
                 Position = new Vector2(-100f, 100f),
+                Color = Color.White
+            });
+
+            HighScoreText = AddText(new Text
+            {
+                Alignment = HorizontalAlignments.Center,
+                VerticalAlign = VerticalAlignments.Top,
+                Scale = .4f,
+                Position = new Vector2(0, 100f),
                 Color = Color.White
             });
 
@@ -186,6 +196,7 @@ namespace ScratchyXna
             Score = 0;
             Level = 0;
             StartLevel();
+            HighScoreText.Value = "High Score: " + SpaceInvaders.HighScore;
             ufo.Reset();
             MoveWaitSeconds = 1;
             alienDirection = AlienDirections.Right;
@@ -361,6 +372,15 @@ namespace ScratchyXna
             ufo.GoHome();
         }
 
+        void CheckHighScore()
+        {
+            if (Score > SpaceInvaders.HighScore)
+            {
+                SpaceInvaders.HighScore = Score;
+                HighScoreText.Value = "High Score: " + SpaceInvaders.HighScore;
+            }
+        }
+
         /// <summary>
         /// Update the play screen
         /// </summary>
@@ -501,6 +521,7 @@ namespace ScratchyXna
             {
                 SpaceInvaders.score = value;
                 ScoreText.Value = "Score: " + SpaceInvaders.score;
+                CheckHighScore();
             }
         }
 
