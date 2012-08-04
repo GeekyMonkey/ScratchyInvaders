@@ -24,7 +24,7 @@ namespace ScratchyXna
             Costume HitCostume = AddCostume("MissileHitBarrier");
             HitCostume.YCenter = VerticalAlignments.Center;
             AddCostume("AlienBullets/BoltRight");
-            AddCostume("AlienBullets/AlienMissileHitBarrrier");
+            AddCostume("AlienBullets/AlienMissileHitBarrier");
             SetCostume("AlienBullets/BoltLeft");
             Costume.YCenter = VerticalAlignments.Center;
             Scale = 0.5f;
@@ -32,6 +32,12 @@ namespace ScratchyXna
             Hide();
         }
 
+        public void HitBarrier(BarrierSprite Barrier)
+        {
+            SetCostume("AlienBullets/AlienMissileHitBarrier");
+            Barrier.Stamp(this, StampMethods.Cutout);
+            State = MissileStates.Destroy; 
+        }
 
         /// <summary>
         /// Update the missile

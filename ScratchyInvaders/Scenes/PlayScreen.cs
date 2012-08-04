@@ -362,13 +362,13 @@ namespace ScratchyXna
                 }
             }
 
-            // S key to fire a missile 
-            /*
-            if (Keyboard.KeyPressed(Keys.S))
+            foreach (AlienMissileSprite AlienMissile in alienMissiles.Where(a => a.State == MissileStates.Destroy).ToList())
             {
-                AlienShoot();
+                Sprites.Remove(AlienMissile);
+                alienMissiles.Remove(AlienMissile);
             }
-            */
+
+            AlienMissileCollisions();
 
             // Missile collisions
             if (missile.State == MissileStates.Flying)
@@ -574,33 +574,28 @@ namespace ScratchyXna
         {
             Wait(CalculateAlienShootDelay(), AlienShoot);
         }
-        /*
+
         void AlienMissileCollisions()
         {
             foreach (AlienMissileSprite AlienMissile in alienMissiles)
             {
                 if (AlienMissile.IsTouching(barrier1))
                 {
-                    AlienMissile.SetCostume("AlienBullets/AlienMissileHitBarrrier");
-                    AlienMissile.Stamp(barrier1, StampMethods.Cutout);
+                    AlienMissile.HitBarrier(barrier1);
                 }
                 if (AlienMissile.IsTouching(barrier2))
                 {
-                    AlienMissile.SetCostume("AlienBullets/AlienMissileHitBarrrier");
-                    AlienMissile.Stamp(barrier2, StampMethods.Cutout);
+                    AlienMissile.HitBarrier(barrier2);
                 }
                 if (AlienMissile.IsTouching(barrier3))
                 {
-                    AlienMissile.SetCostume("AlienBullets/AlienMissileHitBarrrier");
-                    AlienMissile.Stamp(barrier3, StampMethods.Cutout);
+                    AlienMissile.HitBarrier(barrier3);
                 }
                 if (AlienMissile.IsTouching(barrier4))
                 {
-                    AlienMissile.SetCostume("AlienBullets/AlienMissileHitBarrrier");
-                    AlienMissile.Stamp(barrier4, StampMethods.Cutout);
+                    AlienMissile.HitBarrier(barrier4);
                 }
             }    
         }
-    */
     }
 }
