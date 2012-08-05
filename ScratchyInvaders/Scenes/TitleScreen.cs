@@ -17,7 +17,8 @@ namespace ScratchyXna
     {
         // Title screen text objects
         Text HighScoreText;
-        Text StartText;
+        Text Player1StartText;
+        Text Player2StartText;
         Text AlienScoreText;
 
         /// <summary>
@@ -110,27 +111,31 @@ namespace ScratchyXna
                 }
             });
 
-            // Add the start key text
-            StartText = AddText(new Text
+            // Add the 1p start key text
+            Player1StartText = AddText(new Text
             {
-                Value = "Press SPACE to Play",
-                Position = new Vector2(0f, -90f),
+                Value = "1 Player Start",
+                Position = new Vector2(-65f, -85f),
                 Alignment = HorizontalAlignments.Center,
-                VerticalAlign = VerticalAlignments.Bottom,
-                AnimationType = TextAnimations.Typewriter,
-                AnimationSeconds = 0.2,
-                Scale = 0.5f,
+                VerticalAlign = VerticalAlignments.Center,
+                AnimationType = TextAnimations.Throb,
+                AnimationIntensity = 0.2,
+                Scale = 0.6f,
                 Color = Color.Lime
             });
 
-            if (Game.Platform == GamePlatforms.XBox)
+            // Add the 2p start key text
+            Player2StartText = AddText(new Text
             {
-                StartText.Value = "Press START to Play Again";
-            }
-            else if (Game.Platform == GamePlatforms.WindowsPhone)
-            {
-                StartText.Value = "TAP to Play Again";
-            }
+                Value = "2 Player Start",
+                Position = new Vector2(65f, -85f),
+                Alignment = HorizontalAlignments.Center,
+                VerticalAlign = VerticalAlignments.Center,
+                AnimationType = TextAnimations.None,
+                AnimationIntensity = 0.2,
+                Scale = 0.4f,
+                Color = Color.Lime
+            });
         }
 
         /// <summary>
@@ -138,6 +143,24 @@ namespace ScratchyXna
         /// </summary>
         public override void Update(GameTime gameTime)
         {
+            if (Keyboard.KeyPressed(Keys.Right))
+            {
+                Player1StartText.AnimationType = TextAnimations.None;
+                Player1StartText.Scale = 0.4f;
+                Player2StartText.AnimationType = TextAnimations.Throb;
+                Player2StartText.Scale = 0.6f;
+                Player2StartText.Start();
+            }
+
+            if (Keyboard.KeyPressed(Keys.Left))
+            {
+                Player1StartText.AnimationType = TextAnimations.Throb;
+                Player1StartText.Scale = 0.6f;
+                Player2StartText.AnimationType = TextAnimations.None;
+                Player2StartText.Scale = 0.4f;
+                Player1StartText.Start();
+            }
+
             // Space key starts the game
             if (Keyboard.KeyPressed(Keys.Space) || Mouse.Button1Pressed())
             {
