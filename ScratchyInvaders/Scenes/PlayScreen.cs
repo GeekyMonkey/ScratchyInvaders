@@ -35,13 +35,15 @@ namespace ScratchyXna
         int level = 1;
         int alienMoveSound = 1;
         int AlienCount;
+        public int ActivePlayer;
         public int Lives;
         AlienDirections alienDirection;
 
         // Text on the screen
         Text shipStatusText;
         Text DebugText;
-        Text ScoreText;
+        Text Player1ScoreText;
+        Text Player2ScoreText;
         Text LevelText;
         Text LivesText;
         Text HighScoreText;
@@ -79,13 +81,24 @@ namespace ScratchyXna
             barrier4.X = 60;
 
             // Create our texts
-            ScoreText = AddText(new Text
+            Player1ScoreText = AddText(new Text
             {
                 Alignment = HorizontalAlignments.Left,
                 VerticalAlign = VerticalAlignments.Top,
                 Scale = .4f,
                 Position = new Vector2(-100f, 100f),
-                Color = Color.White
+                Color = Color.White,
+                Value = "Player 1 Score: " + SpaceInvaders.Player1Score
+            });
+
+            Player2ScoreText = AddText(new Text
+            {
+                Alignment = HorizontalAlignments.Right,
+                VerticalAlign = VerticalAlignments.Top,
+                Scale = .4f,
+                Position = new Vector2(100f, 100f),
+                Color = Color.White,
+                Value = "Player 2 Score: " + SpaceInvaders.Player2Score
             });
 
             HighScoreText = AddText(new Text
@@ -515,12 +528,27 @@ namespace ScratchyXna
         {
             get
             {
-                return SpaceInvaders.score;
+                if (ActivePlayer == 1)
+                {
+                    return SpaceInvaders.Player1Score;
+                }
+                else
+                {
+                    return SpaceInvaders.Player2Score;
+                }
             }
             set
             {
-                SpaceInvaders.score = value;
-                ScoreText.Value = "Score: " + SpaceInvaders.score;
+                if (ActivePlayer == 1)
+                {
+                    SpaceInvaders.Player1Score = value;
+                    Player1ScoreText.Value = "Player 1 Score: " + SpaceInvaders.Player1Score;
+                }
+                else
+                {
+                    SpaceInvaders.Player2Score = value;
+                    Player2ScoreText.Value = "Player 2 Score: " + SpaceInvaders.Player2Score;
+                }
                 CheckHighScore();
             }
         }

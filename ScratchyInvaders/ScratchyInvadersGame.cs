@@ -19,7 +19,8 @@ namespace ScratchyXna
     public class SpaceInvaders : ScratchyXnaGame
     {
         // Game variables
-        public static int score;
+        public static int Player1Score;
+        public static int Player2Score;
         public static int HighScore;
 
         /// <summary>
@@ -31,9 +32,12 @@ namespace ScratchyXna
             PlayerData.Load();
             HighScore = PlayerData.GetInt("HighScore", 0);
             AddScene<TitleScreen>();
-            AddScene<PlayScreen>();
+            PlayScreen Player1Screen = AddScene<PlayScreen>("Player1");
+            PlayScreen Player2Screen = AddScene<PlayScreen>("Player2");
             AddScene<GameOverScreen>();
             AddScene<TestScreen>();
+            Player1Screen.ActivePlayer = 1;
+            Player2Screen.ActivePlayer = 2;
         }
 
     }

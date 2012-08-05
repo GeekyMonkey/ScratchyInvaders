@@ -93,7 +93,7 @@ namespace ScratchyXna
             PlayerData.Save();
 
             // Display the final score
-            ScoreText.Value = "Score: " + SpaceInvaders.score;
+            ScoreText.Value = "Player 1 Score: " + SpaceInvaders.Player1Score + Text.NewLine + "Player 2 Score: " + SpaceInvaders.Player2Score;
             HighScoreText.Value = "High Score: " + SpaceInvaders.HighScore;
             
             // Wait 2 seconds

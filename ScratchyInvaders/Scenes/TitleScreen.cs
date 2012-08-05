@@ -166,7 +166,7 @@ namespace ScratchyXna
             {
                 //todo: tap to play
                 //todo: xbox a or start button to play
-                ShowScene("Play");
+                ShowScene("Player1");
             }
 
             // Give us something interesting to look at
