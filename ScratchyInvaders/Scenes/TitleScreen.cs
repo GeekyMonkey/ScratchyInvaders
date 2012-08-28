@@ -107,7 +107,6 @@ namespace ScratchyXna
                         Color = Color.White
                     });
 
-
                 }
             });
 
@@ -118,7 +117,7 @@ namespace ScratchyXna
                 Position = new Vector2(-65f, -85f),
                 Alignment = HorizontalAlignments.Center,
                 VerticalAlign = VerticalAlignments.Center,
-                AnimationType = TextAnimations.Throb,
+                AnimationType = TextAnimations.None,
                 AnimationIntensity = 0.2,
                 Scale = 0.6f,
                 Color = Color.Lime
@@ -133,9 +132,22 @@ namespace ScratchyXna
                 VerticalAlign = VerticalAlignments.Center,
                 AnimationType = TextAnimations.None,
                 AnimationIntensity = 0.2,
-                Scale = 0.4f,
+                Scale = 0.6f,
                 Color = Color.Lime
             });
+
+            if (SpaceInvaders.NumberOfPlayers == 1)
+            {
+                Player1StartText.AnimationType = TextAnimations.Throb;
+                Player1StartText.Scale = 0.6f;
+                Player1StartText.Start();
+            }
+            else
+            {
+                Player2StartText.AnimationType = TextAnimations.Throb;
+                Player2StartText.Scale = 0.6f;
+                Player2StartText.Start();
+            }
         }
 
         /// <summary>
@@ -145,8 +157,9 @@ namespace ScratchyXna
         {
             if (Keyboard.KeyPressed(Keys.Right))
             {
+                SpaceInvaders.NumberOfPlayers = 2;
                 Player1StartText.AnimationType = TextAnimations.None;
-                Player1StartText.Scale = 0.4f;
+                Player1StartText.Scale = 0.6f;
                 Player2StartText.AnimationType = TextAnimations.Throb;
                 Player2StartText.Scale = 0.6f;
                 Player2StartText.Start();
@@ -154,18 +167,18 @@ namespace ScratchyXna
 
             if (Keyboard.KeyPressed(Keys.Left))
             {
+                SpaceInvaders.NumberOfPlayers = 1;
                 Player1StartText.AnimationType = TextAnimations.Throb;
                 Player1StartText.Scale = 0.6f;
                 Player2StartText.AnimationType = TextAnimations.None;
-                Player2StartText.Scale = 0.4f;
+                Player2StartText.Scale = 0.6f;
                 Player1StartText.Start();
             }
 
             // Space key starts the game
             if (Keyboard.KeyPressed(Keys.Space) || Mouse.Button1Pressed())
             {
-                //todo: tap to play
-                //todo: xbox a or start button to play
+                ((SpaceInvaders)Game).CreatePlayerScreens();
                 ShowScene("Player1");
             }
 

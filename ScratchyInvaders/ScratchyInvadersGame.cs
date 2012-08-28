@@ -22,6 +22,7 @@ namespace ScratchyXna
         public static int Player1Score;
         public static int Player2Score;
         public static int HighScore;
+        public static int NumberOfPlayers = 1;
 
         /// <summary>
         /// Load the screens needed for the game
@@ -32,13 +33,19 @@ namespace ScratchyXna
             PlayerData.Load();
             HighScore = PlayerData.GetInt("HighScore", 0);
             AddScene<TitleScreen>();
-            PlayScreen Player1Screen = AddScene<PlayScreen>("Player1");
-            PlayScreen Player2Screen = AddScene<PlayScreen>("Player2");
             AddScene<GameOverScreen>();
             AddScene<TestScreen>();
-            Player1Screen.ActivePlayer = 1;
-            Player2Screen.ActivePlayer = 2;
+            CreatePlayerScreens();
         }
 
+        public void CreatePlayerScreens()
+        {
+            PlayScreen Player1Screen = AddScene<PlayScreen>("player1");
+            PlayScreen Player2Screen = AddScene<PlayScreen>("player2");
+            Player1Screen.ActivePlayer = 1;
+            Player2Screen.ActivePlayer = 2;
+            Player1Screen.Init(this);
+            Player2Screen.Init(this);
+        }
     }
 }

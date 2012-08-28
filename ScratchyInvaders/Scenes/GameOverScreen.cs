@@ -128,7 +128,7 @@ namespace ScratchyXna
             {
                 //todo: also do this for phone tap
                 //todo: also do this for xbox a button
-                ShowScene("play");
+                ShowScene("title");
             }
         }
 

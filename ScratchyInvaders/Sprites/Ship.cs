@@ -33,16 +33,16 @@ namespace ScratchyXna
         {
             SetCostume("ShipDeath");
             PlaySound("ShipDeath");
-            Wait(2, ShipLive);
         }
 
         /// <summary>
         /// Ship back to life
         /// </summary>
-        void ShipLive()
+        public void ShipLive()
         {
-            SetCostume("ship");
             X = 0;
+            SetCostume("ship");
+            Show();
         }
 
 

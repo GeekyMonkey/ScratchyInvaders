@@ -40,7 +40,7 @@ namespace ScratchyXna
             // Add the start key text
             RestartText = AddText(new Text
             {
-                Value = "Press SPACE to Play Again",
+                Value = "Press SPACE to Play",
                 Position = new Vector2(0f, -100f),
                 Alignment = HorizontalAlignments.Center,
                 VerticalAlign = VerticalAlignments.Bottom,
@@ -51,11 +51,11 @@ namespace ScratchyXna
             });
             if (Game.Platform == GamePlatforms.XBox)
             {
-                RestartText.Value = "Press START to Play Again";
+                RestartText.Value = "Press START to Play";
             }
             else if (Game.Platform == GamePlatforms.WindowsPhone)
             {
-                RestartText.Value = "TAP to Play Again";
+                RestartText.Value = "TAP to Play";
             }
 
             missile = AddSprite<MissileSprite>();
