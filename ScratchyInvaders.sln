@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010 Express for Windows Phone
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScratchyInvaders", "ScratchyInvaders\ScratchyInvaders.csproj", "{A783F793-3B4B-4793-B377-E8FFA90D59F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScratchyInvadersContent", "ScratchyInvadersContent\ScratchyInvadersContent.contentproj", "{5445846E-AA81-4DE2-A3BE-85538854562E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScratchyInvadersContent", "ScratchyInvadersContent\ScratchyInvadersContent.contentproj", "{41F3851E-B9F8-4B6A-A8ED-7A1DA44C4F69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
