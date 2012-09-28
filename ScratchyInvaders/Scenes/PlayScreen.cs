@@ -26,7 +26,7 @@
                 lifesprites.Clear();
                 Sprites.RemoveAll(s => s is LivesSprite);
                 Costume lifecostume = new Costume();
-                lifecostume.Load(this, Content, "Ship");
+                lifecostume.Load("Ship");
                 lifecostume.YCenter = VerticalAlignments.Bottom;
                 float lifeSpacing = 10;
                 for (int i = 1; i <= Lives; i++)
