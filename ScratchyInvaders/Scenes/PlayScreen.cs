@@ -61,7 +61,16 @@
             Wait(2.0, StartPlayer);
         }        public void StartPlayer()        {
             Mode = PlayScreenModes.Playing;            Wait(MoveWaitSeconds, Move);            ScheduleAlienShoot();
-        }        /// <summary>        /// Start the next level        /// </summary>        private void StartLevel()        {            Level += 1;            CreateAliens();            barrier1.Load();            barrier2.Load();            barrier3.Load();            barrier4.Load();            MoveWaitSeconds = 1.1f - ((float)Level / 10.0f);        }        /// <summary>        /// Move all of the aliens        /// </summary>        void Move()        {
+        }        /// <summary>        /// Start the next level        /// </summary>        private void StartLevel()        {            Level += 1;            CreateAliens();            // Remove holes in barriers            barrier1.Load();            barrier2.Load();            barrier3.Load();            barrier4.Load();
+            
+            // Show the barriers if the aliens had gone to the bottom
+            barrier1.Show();
+            barrier2.Show();
+            barrier3.Show();
+            barrier4.Show();
+
+            // Alien move speed for this level
+            MoveWaitSeconds = 1.1f - ((float)Level / 10.0f);        }        /// <summary>        /// Move all of the aliens        /// </summary>        void Move()        {
             if (Mode != PlayScreenModes.Playing)
             {
                 return;
@@ -94,7 +103,7 @@
                     {
                         HitBarriers = true;
                     }                }            }
-            if (HitBarriers)
+            if (HitBarriers && barrier1.Visible)
             {
                 barrier1.Hide();
                 barrier2.Hide();
